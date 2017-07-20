@@ -1,6 +1,5 @@
 package com.londonappbrewery.magiceightball;
 
-import android.provider.SyncStateContract;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
   ConstraintLayout layout;
   Button btn_ask;
   Button btn_theme;
-  ImageView img_8ball;
+  ImageView ballDisplay;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     layout = (ConstraintLayout) findViewById(R.id.main);
     btn_ask = (Button) findViewById(R.id.btn_ask);
     btn_theme = (Button) findViewById(R.id.btn_background);
-    img_8ball = (ImageView) findViewById(R.id.img_8bal);
+    ballDisplay = (ImageView) findViewById(R.id.img_8bal);
     final int[] ballArray = {R.drawable.ball1,
       R.drawable.ball2,
       R.drawable.ball3,
@@ -40,9 +39,8 @@ public class MainActivity extends AppCompatActivity {
     btn_ask.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-       int randomNumber = new Random().nextInt(5);
-        Log.i("8ball", "the number is: " + randomNumber);
-        img_8ball.setImageResource(ballArray[randomNumber]);
+        int randomNumber = new Random().nextInt(5);
+        ballDisplay.setImageResource(ballArray[randomNumber]);
       }
     });
 
